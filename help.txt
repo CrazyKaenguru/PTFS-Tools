@@ -1,0 +1,4 @@
+**/help** to view all Commands!
+**/chart [airport]** to view the chart of a specific sirport
+**/atis [airport]** to get a atis template for a specific airport
+**/flight-plan [callsign]  [aircraft]...** to create a flight plan

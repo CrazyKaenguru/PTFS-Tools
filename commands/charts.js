@@ -7,17 +7,19 @@ module.exports = {
   execute(client, interaction, options) {
     (async () => {
         var fs = require('fs');
-var array = fs.readFileSync('Airports.txt').toString().split("\n");
-for( i in array)
-{
- array[i].replace("\r","")
-}
-console.log(array)
+
+var image="";
+image="https://ptfs.xyz/charts/light/"+options.getString("airport")+"%20Ground%20Chart.png"
+
+
       const Chartembed = new Discord.EmbedBuilder()
-        .setTitle(options.getString("mm"))
+        .setTitle(options.getString("airport"))
+        .setDescription("Chart of "+options.getString("airport"))
         .setColor("#ffff00")
-        .setImage("https://ptfs.xyz/charts/light/ITKO%20Ground%20Chart.png");
+       .setImage(image);
+       
       interaction.reply({ embeds: [Chartembed] });
+      
     })();
   },
 };

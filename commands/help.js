@@ -1,13 +1,15 @@
 const Discord = require("discord.js");
+const fs = require('fs');
 
-const exampleEmbed = new Discord.EmbedBuilder()
-.setDescription("Desc")
-.setColor('#ffff00')
 
 module.exports = {
     name: 'help',
     description: "this is a ping command!",
     execute(client, interaction){
-        interaction.reply({embeds:[exampleEmbed]})
+        const helpEmbed = new Discord.EmbedBuilder()
+.setTitle("All Commands:")
+.setDescription(fs.readFileSync("help.txt", "utf8"))
+.setColor('#ffff00')
+        interaction.reply({embeds:[helpEmbed]})
     }
 }
